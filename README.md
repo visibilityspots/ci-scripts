@@ -41,3 +41,12 @@ In our case the jenkins job will be triggered and the github.com repository will
 * git remote rm USER                                          (Remove the remote url from your local repository)
 
 source: https://wincent.com/wiki/Setting_up_backup_(mirror)_repositories_on_GitHub#comment_10143 wincent.com
+
+update-raspbian-screenly.sh
+---------------------------
+
+We have setted up some raspberries for showing some dashing (http://shopify.github.io/dashing/) dashboards using screenly (http://www.screenlyapp.com/ose.html). Because we doens't want to manually update those little devices every once in a while I've scripted those steps.
+
+In the beginning we were using this script running in cron on the device itself. But after a while I figured out we really wanted to have the script in a repository for versioning and keep track of the log of those updates. So I generated a jenkins jobs which runs once a week by using scp for copying the script to the home directory of the pi user on the raspberry and using execute shell on remote host using ssh to execute this script.
+
+That way the raspbian operating system is updated and the screenly app if there are updates available.
