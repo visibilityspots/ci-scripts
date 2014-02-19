@@ -57,3 +57,5 @@ jenkins.php
 We are using the jenkins build with parameter plugin (https://wiki.jenkins-ci.org/display/JENKINS/Build+With+Parameters+Plugin) to trigger some abstractified jobs. But when implementing the webhook url in github enterprise we figured out a major issue.
 
 Github uses a post request to trigger the url, but jenkins isn't able of interpreting the parameters besides the token. Which makes this webhook kinda useless. Therefore I wrote a simple php script which parses the post request parameters into a get request using curl.
+
+I created an issue for this: https://issues.jenkins-ci.org/browse/JENKINS-21869
