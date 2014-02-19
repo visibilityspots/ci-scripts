@@ -50,3 +50,10 @@ We have setted up some raspberries for showing some dashing (http://shopify.gith
 In the beginning we were using this script running in cron on the device itself. But after a while I figured out we really wanted to have the script in a repository for versioning and keep track of the log of those updates. So I generated a jenkins jobs which runs once a week by using scp for copying the script to the home directory of the pi user on the raspberry and using execute shell on remote host using ssh to execute this script.
 
 That way the raspbian operating system is updated and the screenly app if there are updates available.
+
+jenkins.php
+-----------
+
+We are using the jenkins build with parameter plugin (https://wiki.jenkins-ci.org/display/JENKINS/Build+With+Parameters+Plugin) to trigger some abstractified jobs. But when implementing the webhook url in github enterprise we figured out a major issue.
+
+Github uses a post request to trigger the url, but jenkins isn't able of interpreting the parameters besides the token. Which makes this webhook kinda useless. Therefore I wrote a simple php script which parses the post request parameters into a get request using curl.
