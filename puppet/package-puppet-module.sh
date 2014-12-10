@@ -8,7 +8,9 @@ MODULE_ENVIRONMENT=$2
 
 PUPPET_TREE="/etc/puppet/environments/$MODULE_ENVIRONMENT"
 
-cd $MODULE
+if [ -d $MODULE ]; then
+	d $MODULE
+fi
 
 ITERATION=$(git rev-list --all | wc -l)
 EPOCH=$ITERATION
