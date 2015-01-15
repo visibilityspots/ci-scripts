@@ -15,7 +15,7 @@ fi
 ITERATION=$(git rev-list --all | wc -l)
 EPOCH=$ITERATION
 
-echo -e "\n\e[1;34m[\e[00m --- \e[00;32mPackage puppet-module $MODULEk \e[00m--- \e[1;34m]\e[00m\n"
+echo -e "\n\e[1;34m[\e[00m --- \e[00;32mPackage puppet-module $MODULE \e[00m--- \e[1;34m]\e[00m\n"
 
 if [ -f Modulefile ]
 then
