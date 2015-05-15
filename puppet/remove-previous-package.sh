@@ -1,7 +1,8 @@
 #!/bin/bash
 #
 
-ITERATION=$(git rev-list --all | wc -l)
+i=$(git rev-list --all | wc -l)
+ITERATION=$(( i - 1 ))
 
 if [ -f Modulefile ]
 then
