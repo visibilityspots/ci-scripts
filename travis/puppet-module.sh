@@ -80,6 +80,8 @@ fi
 
 echo
 
+echo "${TRAVIS_PULL_REQUEST}"
+
 if [ "$lint_fail" == "true" ]
 then
   exit 1;
