@@ -80,12 +80,10 @@ fi
 
 echo
 
-echo "PULL REQ: ${TRAVIS_PULL_REQUEST}"
-
 if [ "$lint_fail" == "true" ]
 then
   exit 1;
-elif [ "${TRAVIS_PULL_REQUEST}" == "false" ]
+elif [ "${TRAVIS_PULL_REQUEST}" != "false" ]
 then
   echo -e "\n\e[1;34m[\e[00m --- \e[00;32mTests are passed ready to be merged \e[00m--- \e[1;34m]\e[00m\n"
 else
