@@ -43,7 +43,8 @@ else
 fi
 
 if [ "$fail" == "true" ]; then
-  echo -e "\e[01;31mStyle check failed.\e[0m";
+  echo ""
+  echo -e "\e[01;31mLin check failed.\e[0m";
   exit 1;
 else
   exit 0;
