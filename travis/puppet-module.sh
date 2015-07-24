@@ -85,7 +85,7 @@ then
   exit 1;
 elif [ "${TRAVIS_PULL_REQUEST}" != "false" ]
 then
-  echo -e "\n\e[1;34m[\e[00m --- \e[00;32mTests are passed ready to be merged \e[00m--- \e[1;34m]\e[00m\n"
+  echo -e "\n\e[1;34m[\e[00m --- \e[00;32mTests are passed, pull request ready to be merged \e[00m--- \e[1;34m]\e[00m\n"
 else
   echo -e "\n\e[1;34m[\e[00m --- \e[00;32mRemove previous package from packagecloud repository \e[00m--- \e[1;34m]\e[00m\n"
 #  bundle exec package_cloud yank visibilityspots/puppet-development-modules/el/6 puppet-development-module-$MODULE_NAME-$MODULE_VERSION-1.x86_64.rpm
