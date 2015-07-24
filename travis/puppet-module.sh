@@ -80,7 +80,7 @@ fi
 
 echo
 
-echo "${TRAVIS_PULL_REQUEST}"
+echo "PULL REQ: ${TRAVIS_PULL_REQUEST}"
 
 if [ "$lint_fail" == "true" ]
 then
