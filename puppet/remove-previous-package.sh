@@ -1,8 +1,12 @@
 #!/bin/bash
 #
-# This script is used by travis to remove the previous version of a package from package_cloud 
+# This script is used by travis to remove the previous version of a package from package_cloud
 
 set -ev
+
+echo $1
+echo $2
+echo $TRAVIS_PULL_REQUEST
 
 if [ $1 -eq 0 ] && [ $2 -eq 0 ] && [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
   if [ -f Modulefile ]; then
