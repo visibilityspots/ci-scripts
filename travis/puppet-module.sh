@@ -53,27 +53,18 @@ then
         cd $1
 fi
 
-for FILE in $(find manifests/ -iname *.pp);
+for i in ${files[@]};
 do
-        if [ -f $FILE ];then
-                files=("${files[@]}" $FILE)
-        fi
+  bundle exec puppet parser validate --storeconfigs $i
+  error=(bundle exec puppet parser validate --storeconfigs $i | wc -l)
+  if [ "$error" != "0" ]; then
+    echo -e "* $i: [\e[01;31mNOT OK\e[0m]:";
+    bundle exec puppet parser validate --storeconfigs $i
+    syntax_fail="true"
+   else
+    echo -e "* $i: [\e[00;32mOK\e[0m]";
+  fi
 done
-if [ ${#files[@]} -eq 0 ];then
-        echo "No puppet manifests to check"
-else
-        for i in ${files[@]};
-        do
-		error=(bundle exec puppet parser validate --storeconfigs $i | wc -l)
-                if [ "$error" != "0" ]; then
-                  echo -e "* $i: [\e[01;31mNOT OK\e[0m]:";
-	          bundle exec puppet parser validate --storeconfigs $i
-  		  syntax_fail="true"
-                else
-                  echo -e "* $i: [\e[00;32mOK\e[0m]";
-		fi
-        done
-fi
 
 if [ "$syntax_fail" == "true" ]; then
   echo
