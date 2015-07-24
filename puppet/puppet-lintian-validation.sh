@@ -1,13 +1,12 @@
 #!/bin/bash
 #
-# Script which performs a puppet lint
+# Script which performs a puppet lint check
 
 set -e
 
 echo -e "\n\e[1;34m[\e[00m --- \e[00;32mLintian check \e[00m--- \e[1;34m]\e[00m\n"
 
 fail="false"
-
 
 if [ ! -z "$1" ];
 then
@@ -27,11 +26,11 @@ if [ ${#files[@]} -eq 0 ];then
 else
         for i in ${files[@]};
         do
-                error=$(bundle exec puppet-lint $i | wc -l)
+                error=$(puppet-lint $i | wc -l)
 
                 if [ "$error" != "0" ]; then
                         echo -e "* $i: [\e[01;31mNOT OK\e[0m]:";
-                        bundle exec puppet-lint --log-format "%{line}:%{KIND}:%{message}" $i | while read line;
+                        puppet-lint --log-format "%{line}:%{KIND}:%{message}" $i | while read line;
                         do
                                 echo "=> $line"
                         done

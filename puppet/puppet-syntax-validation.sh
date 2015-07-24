@@ -22,7 +22,7 @@ if [ ${#files[@]} -eq 0 ];then
 else
         for i in ${files[@]};
         do
-                bundle exec puppet parser validate --storeconfigs $i
+                puppet parser validate --storeconfigs $i
                 echo -e "* $i: [\e[00;32mOK\e[0m]";
         done
 fi
