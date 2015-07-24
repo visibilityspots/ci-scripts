@@ -65,7 +65,7 @@ then
     )
     FPM_DEPENDS="puppet-${MODULE_ENVIRONMENT}-module-${DEPENDENCY_NAME} ${DEPENDENCY_VERSION}"
 
-    fpm -s dir -t rpm \
+    bundle exec fpm -s dir -t rpm \
       -v ${MODULE_VERSION} \
       --license "${MODULE_LICENSE}" \
       --url "${MODULE_URL}" \
@@ -103,7 +103,7 @@ then
       .
   else
 
-    fpm -s dir -t rpm \
+    bundle exec fpm -s dir -t rpm \
       -v ${MODULE_VERSION} \
       --license "${MODULE_LICENSE}" \
       --url "${MODULE_URL}" \

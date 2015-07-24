@@ -22,5 +22,5 @@ fi
 
 echo -e "\n\e[1;34m[\e[00m --- \e[00;32mRemove previous package from packagecloud repository \e[00m--- \e[1;34m]\e[00m\n"
 
-#package_cloud yank visibilityspots/puppet-development-modules/el/6 puppet-development-module-$MODULE_NAME-$MODULE_VERSION-$ITERATION.x86_64.rpm
+bundle exec package_cloud yank visibilityspots/puppet-development-modules/el/6 puppet-development-module-$MODULE_NAME-$MODULE_VERSION-$ITERATION.x86_64.rpm
 
