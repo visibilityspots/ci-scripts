@@ -7,6 +7,7 @@ set -e
 MODULE=$1
 MODULE_ENVIRONMENT=$2
 PUPPET_TREE="/etc/puppet/environments/$MODULE_ENVIRONMENT"
+if [ -z "$3" ]; PACKAGING=false; else PACKAGING=$3;fi
 lint_fail="false"
 
 if [ -d $MODULE ]; then
@@ -83,7 +84,7 @@ echo
 if [ "$lint_fail" == "true" ]
 then
   exit 1;
-elif [ "${TRAVIS_PULL_REQUEST}" != "false" ]
+elif [ "${TRAVIS_PULL_REQUEST}" != "false" ] && [ "$PACKAGING" == "true" ]
 then
   echo -e "\n\e[1;34m[\e[00m --- \e[00;32mTests are passed, pull request ready to be merged \e[00m--- \e[1;34m]\e[00m\n"
 else
