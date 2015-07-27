@@ -8,6 +8,9 @@ MODULE=$1
 MODULE_ENVIRONMENT=$2
 PUPPET_TREE="/etc/puppet/environments/$MODULE_ENVIRONMENT"
 if [ -z "$3" ]; then PACKAGING=false; else PACKAGING=$3;fi
+
+echo $PACKAGING
+
 lint_fail="false"
 
 if [ -d $MODULE ]; then
