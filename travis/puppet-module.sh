@@ -85,12 +85,12 @@ fi
 echo
 
 
-echo "Travis:  ${TRAVIS_PULL_REQUEST} & packaging: ${PACKAGING}"
+echo "Travis: ${TRAVIS_PULL_REQUEST} & packaging: ${PACKAGING}"
 
 if [ "$lint_fail" == "true" ]
 then
   exit 1;
-elif [ "${TRAVIS_PULL_REQUEST}" != "false" ] && [ "$PACKAGING" == "false" ]
+elif [ "${TRAVIS_PULL_REQUEST}" == "false" ] && [ "$PACKAGING" == "false" ]
 then
   echo -e "\n\e[1;34m[\e[00m --- \e[00;32mTests are passed sucessfully \e[00m--- \e[1;34m]\e[00m\n"
 else
