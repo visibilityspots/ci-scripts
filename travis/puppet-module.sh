@@ -84,6 +84,9 @@ fi
 
 echo
 
+
+echo "Travis:  ${TRAVIS_PULL_REQUEST} & packaging: ${PACKAGING}"
+
 if [ "$lint_fail" == "true" ]
 then
   exit 1;
